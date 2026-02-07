@@ -66,7 +66,7 @@ export const logout = async () => {
 };
 
 export const getMe = async () => {
-  const response = await nextServer.post<User>("/users/me");
+  const response = await nextServer.get<User>("/users/me");
   return response.data;
 };
 

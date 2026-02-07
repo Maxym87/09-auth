@@ -43,3 +43,15 @@ export const fetchUserProfile = async (): Promise<User> => {
 
   return response.data;
 };
+
+export const cheServerSession = async () => {
+  const cookieStore = await cookies();
+  const cookieHeader = cookieStore.toString();
+
+  const response = await nextServer.get("/auth/session", {
+    headers: {
+      Cookie: cookieHeader,
+    },
+  });
+  return response;
+};
