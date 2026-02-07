@@ -1,3 +1,4 @@
+
 /* page.module.css */
 
 .mainContent {
@@ -99,9 +100,7 @@
   border: 2px solid #6c757d;
   border-radius: 8px;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .cancelButton:hover {

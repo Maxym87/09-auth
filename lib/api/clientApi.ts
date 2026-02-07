@@ -2,7 +2,16 @@ import { LoginRequest, RegisterRequest } from "@/types/auth";
 import type { Note, NewNote, FetchNotesResponse } from "../../types/note";
 
 import { nextServer } from "./api";
-import { User } from "@/types/user";
+import { UpdateUserRequest, User } from "@/types/user";
+
+type CheckSessionRequest = {
+  success: boolean;
+};
+
+export const checkSession = async () => {
+  const response = await nextServer.get<CheckSessionRequest>("/auth/session");
+  return response.data.success;
+};
 
 export const fetchNotes = async (
   page: number,
@@ -54,4 +63,14 @@ export const login = async (data: LoginRequest) => {
 
 export const logout = async () => {
   await nextServer.post("/auth/logout");
+};
+
+export const getMe = async () => {
+  const response = await nextServer.post<User>("/users/me");
+  return response.data;
+};
+
+export const updateMe = async (data: UpdateUserRequest) => {
+  const response = await nextServer.patch<User>("/users/me", data);
+  return response.data;
 };

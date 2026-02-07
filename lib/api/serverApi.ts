@@ -1,5 +1,7 @@
+import { User } from "@/types/user";
 import type { Note, FetchNotesResponse } from "../../types/note";
 import { nextServer } from "./api";
+import { cookies } from "next/headers";
 
 export const fetchNotes = async (
   page: number,
@@ -26,5 +28,18 @@ export const fetchNotes = async (
 
 export const fetchNoteById = async (id: string) => {
   const response = await nextServer.get<Note>(`/notes/${id}`);
+  return response.data;
+};
+
+export const fetchUserProfile = async (): Promise<User> => {
+  const cookieStore = await cookies();
+  const cookieHeader = cookieStore.toString();
+
+  const response = await nextServer.get("/users/me", {
+    headers: {
+      Cookie: cookieHeader,
+    },
+  });
+
   return response.data;
 };

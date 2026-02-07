@@ -1,4 +1,10 @@
+"use client";
+
 import css from "./EditProfilePage.module.css";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/lib/store/authStore";
 
 export default function Edit() {
   return (
