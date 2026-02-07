@@ -6,7 +6,7 @@ import {
 
 import { Metadata } from "next";
 
-import { fetchNotes } from "@/lib/api";
+import { fetchNotes } from "@/lib/api/serverApi";
 import NotesClient from "./Notes.client";
 
 type NotesByIdProps = {
