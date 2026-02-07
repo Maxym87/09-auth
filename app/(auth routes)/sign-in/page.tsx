@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { login, LoginRequest } from "@/lib/api/api";
-import { ApiError } from "@/app/api/api";
+import { login, LoginRequest } from "@/lib/api/clientApi";
+import { APIError } from "@/app/api/api";
 
 const SignIn = () => {
   const router = useRouter();
@@ -21,8 +21,8 @@ const SignIn = () => {
       }
     } catch (error) {
       setError(
-        (error as ApiError).response?.data?.error ??
-          (error as ApiError).message ??
+        (error as APIError).response?.data?.error ??
+          (error as APIError).message ??
           "Oops... some error",
       );
     }

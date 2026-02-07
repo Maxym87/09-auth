@@ -42,7 +42,7 @@ export const deleteNote = async (noteId: string): Promise<Note> => {
   return response.data;
 };
 
-export const registr = async (data: RegisterRequest) => {
+export const register = async (data: RegisterRequest) => {
   const response = await nextServer.post<User>("/auth/register", data);
   return response.data;
 };
