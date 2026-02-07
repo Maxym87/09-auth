@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Personal NoteHub",
     description: "Personal profile page with notes",
     siteName: "NoteHub",
-    url: "",
+    url: "https://ac.goit.global/fullstack/react/default-avatar.jpg",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
@@ -32,13 +32,15 @@ export default async function Profile() {
         <div className={css.header}>
           <h1 className={css.formTitle}>Profile Page</h1>
           <Link href="/profile/edit" className={css.editProfileButton}>
-            {" "}
             Edit Profile
           </Link>
         </div>
         <div className={css.avatarWrapper}>
           <Image
-            src={user.avatar}
+            src={
+              user.avatar ??
+              "https://ac.goit.global/fullstack/react/default-avatar.jpg"
+            }
             alt="User Avatar"
             width={120}
             height={120}
