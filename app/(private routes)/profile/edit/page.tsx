@@ -1,16 +1,18 @@
+import css from "./EditProfilePage.module.css";
+
 export default function Edit() {
   return (
     <main className={css.mainContent}>
       <div className={css.profileCard}>
         <h1 className={css.formTitle}>Edit Profile</h1>
 
-        <img
+        {/* <img
           src="avatar"
           alt="User Avatar"
           width={120}
           height={120}
           className={css.avatar}
-        />
+        /> */}
 
         <form className={css.profileInfo}>
           <div className={css.usernameWrapper}>
