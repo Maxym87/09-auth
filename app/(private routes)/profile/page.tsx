@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Personal NoteHub",
     description: "Personal profile page with notes",
     siteName: "NoteHub",
-    url: "https://ac.goit.global/fullstack/react/default-avatar.jpg",
+    url: "https://09-auth-mdet.vercel.app/profile",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
