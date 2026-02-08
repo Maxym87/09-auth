@@ -2,6 +2,7 @@ import { User } from "@/types/user";
 import type { Note, FetchNotesResponse } from "../../types/note";
 import { nextServer } from "./api";
 import { cookies } from "next/headers";
+import { AxiosResponse } from "axios";
 
 export const fetchNotes = async (
   page: number,
@@ -57,18 +58,6 @@ export const getCurrentUser = async (): Promise<User> => {
   return response.data;
 };
 
-export const checkServerSession = async (): Promise<boolean> => {
-  try {
-    const cookieStore = cookies();
-
-    const response = await nextServer.get("/auth/session", {
-      headers: {
-        Cookie: cookieStore.toString(),
-      },
-    });
-
-    return response.status === 200;
-  } catch {
-    return false;
-  }
+export const checkServerSession = async (): Promise<AxiosResponse> => {
+  return nextServer.get("/auth/session");
 };
