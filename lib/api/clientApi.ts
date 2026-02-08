@@ -2,15 +2,19 @@ import { LoginRequest, RegisterRequest } from "@/types/auth";
 import type { Note, NewNote, FetchNotesResponse } from "../../types/note";
 
 import { nextServer } from "./api";
-import { UpdateUserRequest, User } from "@/types/user";
-
-type CheckSessionRequest = {
-  success: boolean;
-};
+import { User } from "@/types/user";
 
 export const checkSession = async () => {
   const response = await nextServer.get<CheckSessionRequest>("/auth/session");
   return response.data.success;
+};
+
+export type CheckSessionRequest = {
+  success: boolean;
+};
+
+export type UpdateUserRequest = {
+  username: string;
 };
 
 export const fetchNotes = async (
